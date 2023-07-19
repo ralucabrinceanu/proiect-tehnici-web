@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ro" >
+
+<head>
+    <title>Contact</title>
+
+    <meta name="keywords" content="telefon, email, adresa">
+    <meta name="description" content="Florarie.">
+
+    <%- include("../fragmente/head.ejs") %>
+
+    <link rel="stylesheet" type="text/css" href="/resurse/css/contact.css" />
+
+</head>
+
+
+<body>
+    <%- include("../fragmente/header.ejs") %>
+
+    <main>
+        <section id="contact">
+            <h2>Contact</h2>
+
+            <article>
+                <h3>informatii de contact</h3>
+                <p>comunicarea este importanta, la fel ca si gesturile mici<br>
+                contacteaza-ne acum la: </p>
+                <div class="contact-info">
+                    <address>
+                        <a href="tel:0765638481">0765638481</a><br>
+                        <a href="mailto: raluca_brinceanu@yahoo.com">raluca_brinceanu@yahoo.com</a>
+                    </address>
+                </div>
+            </article>
+
+            <div class="video-e3">
+                <video width="320" height="240" poster="resurse/imagini/zoomFlorist.jpg" preload="metadata" playsinline controls muted controls>
+                    <source src="resurse/video/florist.mp4" type="video/mp4"/>
+                    <source src="resurse/video/florist.ogv" type="video/ogv"/>
+                    <track default src="resurse/video/tracks/captions-ro.vtt" kind="captions" srclang="ro" label="romana"/>
+                    <track src="resurse/video/tracks/captions-en.vtt" kind="captions" srclang="en" label="engleza"/>
+                </video>
+            </div>
+
+        </section>
+    </main>
+ 
+
+</body>
+</html>

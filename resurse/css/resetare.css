@@ -1,0 +1,26 @@
+body {
+    line-height: 1.5;
+}
+
+img, picture, figure {
+    display: block;
+    max-width: 100%;
+}
+
+p, h1, h2, h3 {
+    margin: 0;
+    overflow-wrap: break-word;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+details, figcaption, footer, header, nav, section {
+	display: block;
+}

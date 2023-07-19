@@ -1,0 +1,101 @@
+@media print {
+    /* 1 */
+    #banner {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 0;
+        width: 100%;
+        height: 20px;
+        right: 0;
+        overflow: visible;
+    }
+
+    #banner::after {
+        content: "acesta este un proiect scolar";
+        position: absolute;
+        font-size: 20px;
+        right: 0;
+        border: 5px double black;
+        width: 50%;
+        height: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* 2 */
+    img, figure, figcaption, video, iframe, #link-top {
+        display: none;
+    }
+
+    /* 3 */
+    #grid-pagina {
+        display: block;
+    }
+
+    /* 4 */
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    /* 5 */
+    /* meniul sub formă de listă neordonată 
+    cu elementele unele sub altele (subopțiunile fiind în subliste).  */
+    h1 {
+        text-align: center;
+        margin-top: 10%;
+    }
+
+    ul.meniu {
+        page-break-after: always;
+        display: block;
+    }
+
+    ul.meniu li {
+        list-style-type: circle;
+        overflow: visible;
+        border: none;
+        width: 100%;
+        height: auto;
+        text-align: left;
+    }
+
+    footer {
+        page-break-before: always;
+    }
+
+    /* 6 */
+    /* watermark centrat pe pagina */
+    #watermark {
+        color: black;
+        display: block;
+        position: fixed;
+        bottom: 50%;
+        left: 50%;
+    }
+
+    #watermark::before {
+        content: "Brinceanu \A Raluca";
+        white-space: pre-wrap;
+        display: block;
+        text-align: center;
+        opacity: 0.3;
+        width: 60vw;
+        height: 10vh;
+    }
+
+
+    /* 7 */
+    @page:left {
+        margin-left: 2cm;
+        margin-right: 1cm;
+    }
+    @page:right {
+        margin-left: 1cm;
+        margin-right: 2cm;
+    }
+
+}

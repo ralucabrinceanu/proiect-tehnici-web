@@ -1,0 +1,120 @@
+body {
+  --culoare-meniu: var(--culoare1);
+  --culoare-meniu-selectat: var(--culoare7) ;
+  --inaltime-meniu: 25px;
+  --inaltime-bara: 4px;
+  --latime-buton: 150px;
+  --latime-bord-meniu: 1px;
+}
+
+ul.meniu {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+ul.meniu a {
+  color: black;
+  cursor: pointer;
+  font-weight: bold;
+  background-color: var(--culoare-meniu);
+  text-decoration: none;
+}
+ul.meniu li a {
+  display: block;
+  height: 100%;
+}
+ul.meniu li:last-child:hover::before {
+  height: var(--inaltime-bara);
+  opacity: 1;
+  transform: translateY(calc(var(--inaltime-meniu) - var(--inaltime-bara)));
+}
+ul.meniu li:nth-last-child:hover::before {
+  height: var(--inaltime-bara);
+  opacity: 1;
+  transform: translateY(calc(var(--inaltime-meniu) - var(--inaltime-bara)));
+}
+ul.meniu li:hover > ul {
+  transform: scale(1);
+}
+ul.meniu > li {
+  height: var(--inaltime-meniu);
+  overflow: hidden;
+  line-height: var(--inaltime-meniu);
+  border: var(--latime-bord-meniu) solid var(--culoare5);
+  width: var(--latime-buton);
+  text-align: center;
+}
+ul.meniu > li:hover {
+  overflow: visible;
+}
+ul.meniu > li:last-child::before {
+  content: "";
+  width: var(--latime-buton);
+  height: 0;
+  background-image: linear-gradient(to right, black, white, black);
+  border-radius: 4px;
+  display: block;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1.5s, transform 1.5s;
+}
+ul.meniu > li:nth-last-child(2)::before {
+  content: "";
+  width: var(--latime-buton);
+  height: 0;
+  background-image: linear-gradient(to right, black, white, black);
+  border-radius: 4px;
+  display: block;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1.5s, transform 1.5s;
+}
+ul.meniu ul {
+  list-style-type: none;
+  z-index: 10;
+  position: relative;
+  left: -1px;
+  padding: 0;
+  margin: 0;
+  transform: scale(0);
+  transform-origin: center center;
+  transition: transform 1.5s;
+}
+ul.meniu ul li {
+  height: var(--inaltime-meniu);
+  border: var(--latime-bord-meniu) solid black;
+  width: var(--latime-buton);
+}
+ul.meniu ul li a:hover {
+  background-color: var(--culoare-meniu-selectat);
+  transition: 1.5s;
+}
+
+@keyframes animatie-culoare-submeniu {
+  from {
+    background-color: var(--culoare-meniu);
+  }
+  to {
+    background-color: var(--culoare-meniu-selectat);
+  }
+}
+#hamburger, #ch-menu {
+  display: none;
+}
+
+nav {
+  height: var(--inaltime-meniu);
+  background-color: var(--culoare-meniu);
+  overflow: visible;
+  position: relative;
+  position: sticky;
+  top: 0;
+}
+
+footer {
+  color: #575556;
+  padding: 10px;
+}
+
+/*# sourceMappingURL=nav.css.map */

@@ -1,0 +1,14 @@
+.fa-only {
+    display: none;
+}
+
+
+/* scrollbar */
+.table-container {
+    margin: 5px, 5px;
+    padding: 5px;
+    width: 300px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+}

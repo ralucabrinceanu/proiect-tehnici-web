@@ -1,0 +1,122 @@
+
+#hamburger{
+    display: block;
+    height: var(--inaltime-meniu);
+    cursor: pointer;
+    transition: background-color 3s ease;
+}
+
+.hamburger-container {
+    width: 30px;
+    height: var(--inaltime-meniu);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+  
+.hamburger-bar {
+    width: 100%;
+    height: 5px;
+    background-color: black;
+    transition: background-color 0.3s ease, transform 0.3s ease, opacity 0.1s ease;
+}
+
+.hamburger-container {
+    &:hover {
+        .hamburger-bar {
+            &:nth-child(1) {
+                transform: rotate(45deg) translate(0, 14px);
+                background-color: var(--culoare5);
+            }
+            &:nth-child(2) {
+                opacity:0;
+            }
+            &:nth-child(3) {
+                transform: rotate(-45deg) translate(0, -14px);
+                background-color: var(--culoare6);
+            }
+
+        }
+    }
+}
+
+
+// bonus hamburger 300 ms
+$hamburger-bars: 3; 
+$delay: 300ms; 
+
+@for $i from 1 through $hamburger-bars {
+  $animation-delay: $i * $delay;
+  
+  .hamburger-container:hover .hamburger-bar:nth-child(#{$i}) {
+    animation-delay: $animation-delay;
+  }
+}
+
+
+ul.meniu {
+    display: none;
+
+    animation-name: animatie-hamburger;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    
+    li {
+        width: 100% !important;
+        
+        &:last-child {
+            &:hover {
+                &::before {
+                    display: none;
+                }
+            }
+        }
+        
+        &:nth-last-child(2) {
+            &:hover {
+                &::before {
+                    display: none;
+                }
+            }
+        }
+        
+        &:hover {
+            >ul {
+                display: block;
+            }
+        }
+    }
+    
+    ul {
+        transform: none !important;
+        transition: none !important;
+    }
+}
+
+#ch-menu:checked~ul.meniu {
+    display: block;
+}
+
+@keyframes animatie-hamburger {
+    from {
+        clip-path: circle(0% at top left);
+    }
+    to {
+        clip-path: circle(125%);
+    }
+}
+
+.fa-only {
+    display: none;
+}
+
+.table-container {
+    margin: 5px, 5px;
+    padding: 5px;
+    width: 300px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+}

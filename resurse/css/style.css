@@ -1,0 +1,195 @@
+#titlu {
+    font-family: 'Tektur', cursive;
+    color: rgb(0, 0, 75);
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}
+
+/* tabel */
+#div2 {
+    caption-side: bottom;
+}
+
+.table-style {
+    cursor: pointer;
+    border-collapse: separate;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
+}
+
+th, td {
+    text-align: center;
+}
+
+tfoot td {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.table-style th.codd, td.codd {
+    background-color: var(--culoare2);
+}
+
+.table-style th.ceven, td.ceven {
+    background-color: var(--culoare8);
+}
+
+tbody tr:hover td {
+    background-color: var(--culoare1);
+}
+
+tbody tr:hover td:hover {
+    transition: background-color 0.5s linear;
+    background-color: var(--culoare3);
+} 
+
+
+/* link-top */
+#triunghi {
+    display: inline-block;
+    width: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid var(--culoare5);
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#link-top{
+    position: fixed;
+    /* bottom: 20px;
+    right: 20px;     */
+
+    bottom: 2px;
+    right: 0;
+
+    height: 10px;
+    display: flex;
+    align-items: center;
+    width: min-content;
+    border: 2px solid var(--culoare6);
+    padding: 3px;
+    border-top: none;
+    border-bottom: none;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+}
+
+#link-top:hover {
+    animation: animatie-paranteze 600ms linear 1 forwards;
+}
+
+#link-top:not(:hover) {
+    animation: animatie-paranteze-off 600ms linear 1 forwards;
+}
+
+#triunghi:hover {
+    animation: animatie-triunghi-on 600ms linear 1 forwards;
+}
+
+#triunghi:not(:hover) {
+    animation: animatie-triunghi-off 600ms linear 1 forwards;
+}
+
+@keyframes animatie-triunghi-on {
+    0% {
+        transform: translateY(0);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(-0.5rem);
+        opacity: 1;
+    }
+}
+ 
+ @keyframes animatie-triunghi-off {
+    0% {
+        transform: translateY(-0.5rem);
+        opacity: 1;
+    }  
+    100% {
+        transform: translateY(0);
+        opacity: 0.5;
+    }  
+} 
+
+@keyframes animatie-paranteze {
+    0% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes animatie-paranteze-off {
+    0% {
+        opacity: 1;
+    }  
+    100% {
+        opacity: 0.5;
+    }  
+} 
+
+/* iframe */
+.taburi-iframe a {
+    display: block;
+    width: 100px;
+    height: 60px;
+    border: 1px solid var(--culoare6);
+    text-align: center;
+    /* margin-right: 0; */
+    border: 1.5px solid var(--culoare5);
+    background-color: var(--culoare6);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    box-shadow: 6px 1px 3px var(--culoare5) inset, 0 4px 2px -1px var(--culoare5);
+
+    /* for links */
+    text-decoration: none;
+    color: #fff;
+}
+
+.taburi-iframe a p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%; 
+    margin: 0;
+}
+
+.taburi-iframe a:nth-child(2) {
+    margin-top: 5px;
+}
+
+.taburi-iframe a:hover {
+    background-color: var(--culoare5);
+    transition: background-color 1s;
+}
+
+.video-container {
+    display: flex;
+    padding: 0;
+    margin: 2%;
+}
+
+iframe {
+    border: 10px solid var(--culoare5);
+}
+
+
+
+/* etapa 3 */
+/* video-vtt */
+::cue {
+    background: var(--culoare6);
+    color: #fff;
+    
+}

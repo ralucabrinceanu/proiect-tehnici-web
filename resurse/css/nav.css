@@ -1,0 +1,116 @@
+body{
+    --culoare-meniu: var(--culoare7);
+    --culoare-meniu-selectat: var(--culoare1) ;
+    --inaltime-meniu: 25px;
+    --inaltime-bara: 4px;
+    --latime-buton: 150px;
+    --latime-bord-meniu: 1px;
+}
+
+ul.meniu {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul.meniu li a {
+    display: block;
+    height: 100%;
+}
+
+ul.meniu>li{
+    height: var(--inaltime-meniu);
+    overflow: hidden;
+    line-height: var(--inaltime-meniu);
+    border: var(--latime-bord-meniu) solid var(--culoare5);
+    width: var(--latime-buton);
+    text-align: center;
+}
+
+ul.meniu ul{
+    list-style-type: none;
+    z-index: 10;
+    position: relative;
+    left: -1px;
+    padding: 0;
+    margin: 0;
+    /* display: none; */
+}
+
+ul.meniu ul li{
+    height: var(--inaltime-meniu);
+    border: var(--latime-bord-meniu) solid black;
+    width: var(--latime-buton);
+}
+
+ul.meniu>li:hover{
+    overflow: visible;
+}
+
+ul.meniu a {
+    color: black;  
+    cursor: pointer;
+    font-weight: bold; 
+    background-color: var(--culoare-meniu); 
+    text-decoration: none;
+}
+
+/* 21 a */
+ul.meniu>li:last-child::before, ul.meniu>li:nth-last-child(2)::before {
+    content: "";
+    width: var(--latime-buton);
+    height: 0;
+    background-image: linear-gradient(to right, var(--culoare5), white, var(--culoare5) );
+    border-radius: 4px;
+    display: block;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1.5s, transform 1.5s;
+}
+
+ul.meniu li:last-child:hover::before, ul.meniu li:nth-last-child(2):hover::before {
+    height: var(--inaltime-bara); 
+    opacity: 1;    
+    transform: translateY(calc(var(--inaltime-meniu) - var(--inaltime-bara)));
+}
+
+/* 21 b */
+ul.meniu ul {
+    transform: scale(0);
+    transform-origin: center center;
+    transition: transform 1.5s;
+}
+
+ul.meniu li:hover>ul {
+    transform: scale(1);
+}
+
+/* 21 c */
+ul.meniu ul li a:hover {
+    background-color: var(--culoare-meniu-selectat);
+    transition: 1.5s;
+}
+
+@keyframes animatie-culoare-submeniu {
+    from {background-color: var(--culoare-meniu);}
+    to {background-color: var(--culoare-meniu-selectat);}
+}
+
+#hamburger, #ch-menu {
+    display: none;
+}
+
+nav {
+    background-color: #fff;
+    height: var(--inaltime-meniu);
+    overflow: visible;
+    position: relative;
+    position: sticky;
+    top: 0;
+}
+
+footer {
+    color: #575556;
+    padding: 10px;
+}
