@@ -9,15 +9,15 @@
         {
             "identificator":404,
             "status":true,
-            "titlu":"404 - Pagina nu a fost gasita",
-            "text": "Nu-i pe serverul ăsta, sorry, caută în altă parte!",
+            "titlu":"404 - Not found",
+            "text": "pagina nu exista",
             "imagine":"lupa.png"
         },
         {
             "identificator":403,
             "status":true,
-            "titlu":"403 - Da, tu ce cauți aici?!!",
-            "text": "Ai greșit ruta. Stânga-împrejur și pa!",
+            "titlu":"403 - Forbidden",
+            "text": "lipsa permisiune de acces",
             "imagine":"interzis.png"
         },
         
@@ -25,7 +25,7 @@
             "identificator":1,
             "status":false,
             "titlu":"Site în lucru",
-            "text": "Muncim, muncim!",
+            "text": "reveniti mai tarziu",
             "imagine":"interzis.png"
         },
         
@@ -35,7 +35,15 @@
             "titlu":"Eroare baza date",
             "text": "Reveniti mai tarziu!",
             "imagine":"interzis.png"
-        }
+        }, 
+
+        {
+            "identificator":3,
+            "status":false,
+            "titlu":"Date gresite",
+            "text": "verificati datele",
+            "imagine":"interzis.png"
+        }      
     ]
 }
   

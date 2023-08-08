@@ -13,6 +13,7 @@
 
         <link href="https://fonts.googleapis.com/css2?family=Tektur&display=swap" rel="stylesheet">
 
+        <link rel="stylesheet" href="resurse/css/galerie-statica.css" type="text/css" />
         <%- include("../fragmente/head.ejs") %>
     </head>
 
@@ -25,10 +26,17 @@
 
                 <section id="istoric">
                     <h3>Istoric</h3>
-                    <p>
-                        am pornit la drum in 2002 cu un vis pe care il vom duce mai departe, abordand fiecare proiect cu delicatete si curaj.<br/>
-                        in prezent, suntem o echipa de 50 de oameni care muncesc zilnic, iar <i>in doi timpi si trei miscari</i> suntem pregatiti sa ajutam la pregatirea cele mai frumoase surprize.<br/>
-                        din dorinta de a fi mereu aproape de clientii nostri, am deschis magazine in mai multe locatii din Romania si continuam extinderea lantului de florarii.
+                    <p id="text-coloane">
+                        Raluca, o fata cu o pasiune imensă pentru flori și natură, și-a împlinit visul de a crea o oază de frumusețe și bucurie pentru locuitorii orașului.
+                        Totul a început cu ani în urmă, când Raluca era doar o copilă, pasionată de grădinărit și de culorile vii ale florilor. 
+                        Avea o înțelegere aparte a plantelor și avea grijă de o mică grădină din curtea casei sale cu o dragoste sinceră. 
+                        În fiecare primăvară, ea planta noi flori și plante și își deschidea "Grădina din colț", oferindu-le vecinilor săi flori minunate și sfaturi despre îngrijirea lor.
+                        Fiecare persoană care pășea în grădină era întâmpinată cu zâmbetul călduros al Ralucăi și cu sfaturi personalizate despre alegerea celor mai potrivite 
+                        flori și plante pentru fiecare ocazie.
+                        Florile erau atent selectate și aranjate cu măiestrie pentru a transmite emoții și sentimente. Așa sunt selectate și astăzi, chiar dacă nu se mai ocupă numai Raluca. 
+                        Am pornit la drum in 2020 cu un vis pe care il vom duce mai departe, abordand fiecare proiect cu delicatete si curaj.
+                        In prezent, suntem o echipa de 50 de oameni care muncesc zilnic, iar <i>in doi timpi si trei miscari</i> suntem pregatiti sa ajutam la pregatirea cele mai frumoase surprize.
+                        Din dorinta de a fi mereu aproape de clientii nostri, am deschis magazine in mai multe orașe din Romania si continuam extinderea lantului de florarii.
                     </p>
                     <h4><i class="fa-solid fa-map-pin" style="color: #00004b;"></i> unde ne gasesti</h4>
                     <ul>
@@ -37,19 +45,16 @@
                         <li><a href="https://goo.gl/maps/mpQ2tqHacKAz3FQ77" target="_blank">Oradea</a></li>
                         <li><a href="https://goo.gl/maps/rzQMbEzEVRDQrk1L6" target="_blank">Timisoara</a></li>
                     </ul>
-    
-
                 </section>
 
-                <section id="galerie">
-                    <h3>Galerie</h3>
+                <!-- etapa 4 -->
+                <hr id="linie-despartitoare">
+                <!--  -->
 
-                </section>
+                <%- include("../fragmente/galerie-statica.ejs")  %> 
             </section>
-            
         </main>
 
         <%- include("../fragmente/footer.ejs") %>
-
     </body>
 </html>

@@ -1,0 +1,36 @@
+<section id="galerie-statica">
+    <h3>Galerie foto</h3>
+    <div id="grid-galerie">
+        <% var nr_imag = 0;
+            for (let imag of locals.imagini) { 
+                nr_imag += 1;
+                if (nr_imag > 10)
+                    break;
+
+                var d = new Date();
+                var min = d.getMinutes();
+                var ora = d.getHours()*60 + min;
+
+                var timpSplit = imag.timp.split("-");
+                var oraStart = parseInt(timpSplit[0].split(":")[0])*60;
+                var oraEnd = parseInt(timpSplit[1].split(":")[0])*60;
+                var minStart = parseInt(timpSplit[0].split(":")[1]);
+                var minEnd = parseInt(timpSplit[1].split(":")[1]);
+
+                var timpStart = oraStart + minStart;
+                var timpEnd = oraEnd + minEnd;
+
+                if (imag.timp && ora >= timpStart && ora <= timpEnd) { %>
+                    <figure class="galerie-statica">
+                        <picture>
+                            <source srcset="<%- imag.fisier_mediu %>" media="(max-width:1200px)" />
+                            <source srcset="<%- imag.fisier_mic %>" media="(max-width:700px)" />
+                            <img src="<%- imag.fisier %>" alt="<%- imag.titlu%>" />
+                        </picture>
+                    <figcaption><%- imag.descriere %></figcaption>
+                </figure>
+
+                <% } %>
+        <% } %>
+    </div>
+</section>

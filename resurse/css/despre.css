@@ -1,0 +1,11 @@
+
+#text-coloane {
+    column-count: 3;
+    column-gap: 20px;
+    column-rule: 4px double var(--culoare5);
+}
+
+p::selection {
+    color: var(--culoare5);
+    background-color: var(--culoare2);
+}

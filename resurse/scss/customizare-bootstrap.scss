@@ -1,0 +1,23 @@
+@use '../../node_modules/bootstrap/scss/bootstrap.scss' with (
+
+    $primary: #af557d,
+    $secondary: #eccccf,
+    $body-color: black,
+    $grid-breakpoints: (
+        xs: 0,
+        sm: 600px,
+        md: 850px,
+        lg: 1000px,
+        xl: 1200px,
+        xxl: 1400px
+    ), 
+    $border-radius:               0.4rem,
+    $h1-font-size:                1.8rem,
+    $h2-font-size:                1.4rem,
+    $h3-font-size:                1.3rem,
+    $font-family-base: 'Lora',
+    $hr-opacity: .24,
+    $table-caption-color: black,
+    $link-color: black,
+    $body-bg: #ffffff,
+)

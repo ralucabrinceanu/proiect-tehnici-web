@@ -11,8 +11,7 @@
         <!-- font awesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
 
-        <link href="https://fonts.googleapis.com/css2?family=Tektur&display=swap" rel="stylesheet">
-
+        <link rel="stylesheet" href="resurse/css/galerie-statica.css" type="text/css" />
         <%- include("../fragmente/head.ejs") %>
     </head>
 
@@ -44,7 +43,7 @@
                     <div class="social-media">
                         <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram" style="color: #00004b;"></i></a>
                         <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook" style="color: #00004b;"></i></a>            
-                    </div>                      
+                    </div>  
                 </section>
 
                 <section id="div2">
@@ -90,6 +89,8 @@
                               </tfoot>
                         </table>         
                     </div>
+
+                    <%- include("../fragmente/galerie-statica.ejs")  %> 
                 </section>
 
                 <section id="div3">
@@ -99,6 +100,35 @@
 
                 <section id="div4">
                     <h2> <i class="fa-solid fa-bell fa-shake"></i> anunturi</h2>
+                    <div id="tabel-transpus">
+                        <p><time datetime="2023-05-11">11 mai 2023 - noile promoții</time></p>
+                        <table id="transpus">
+                            <thead class="etapa4">
+                                <tr class="etapa4">
+                                    <th class="etapa4">Produs</th>
+                                    <th class="etapa4">Preț</th>
+                                    <th class="etapa4">Pana la data de</th>
+                                </tr>
+                            </thead>
+                            <tbody class="etapa4">
+                                <tr class="etapa4">
+                                    <td class="etapa4">Ficus Amsel King</td>
+                                    <td class="etapa4">600 Lei</td>
+                                    <td class="etapa4">15.06.2023</td>
+                                </tr>
+                                <tr class="etapa4">
+                                    <td class="etapa4">Yucca</td>
+                                    <td class="etapa4">300 Lei</td>
+                                    <td class="etapa4">01.06.2023</td>
+                                </tr>
+                                <tr class="etapa4">
+                                    <td class="etapa4">Ficus Bonsai Ginseng</td>
+                                    <td class="etapa4">750 Lei</td>
+                                    <td class="etapa4">01.07.2023</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                     <div class="div4-img">
                         <p><time datetime="2023-04-10">04 aprilie 2023 - au sosit cele mai asteptate flori</time></p>
                         <div class="img-container">

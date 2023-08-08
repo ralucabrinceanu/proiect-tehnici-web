@@ -2,36 +2,74 @@
 	"cale_galerie":"resurse/imagini/galerie",
 	"imagini": [
 		{
-			"fisier":"briose-frisca.png",
-			"descriere":"Brioșe",
-			"luni":["martie","februarie","iunie"]
+			"cale_imagine":"imagine-1.png",
+			"titlu":"Imagine 1",
+			"descriere":"Descriere 1",
+			"timp":"08:00-13:00"
 		},
 		{
-			"fisier":"clatite.png",
-			"descriere":"Clătite cu dulceață",
-			"luni":["ianuarie","februarie","iunie"]
-			
+			"cale_imagine":"imagine-2.png",
+			"titlu":"Imagine 2",
+			"descriere":"Descriere 2",
+			"timp":"09:00-12:00"			
 		},
 		{
-			"fisier":"gogosi.png",
-			"descriere":"Gogoși glazurate",
-			"luni":["ianuarie","februarie","iunie","martie"]
+			"cale_imagine":"imagine-3.png",
+			"titlu":"Imagine 3",
+			"descriere":"Descriere 3",
+			"timp":"12:00-20:00"
 		},
 		{
-			"fisier":"tort-scortisoara.png",
-			"descriere":"Tort cu scorțisoară"
+			"cale_imagine":"imagine-4.png",
+			"titlu":"Imagine 4",
+			"descriere":"Descriere 4",
+			"timp":"10:00-13:00"
 		},
 		{
-			"fisier":"prajitura-ciocolata.png",
-			"descriere":"Prăjitură cu ciocolată"
+			"cale_imagine":"imagine-5.png",
+			"titlu":"Imagine 5",
+			"descriere":"Descriere 5",
+			"timp":"13:00-22:00"
 		},
 		{
-			"fisier":"tarta-afine.png",
-			"descriere":"Tartă cu afine"
+			"cale_imagine":"imagine-6.png",
+			"titlu":"Imagine 6",
+			"descriere":"Descriere 6",
+			"timp":"07:00-20:00"
 		},
 		{
-			"fisier":"tort-trandafiri.png",
-			"descriere":"Tort special"
+			"cale_imagine":"imagine-7.png",
+			"titlu":"Imagine 7",
+			"descriere":"Descriere 7",
+			"timp":"17:00-23:00"
+		},
+		{
+			"cale_imagine":"imagine-8.png",
+			"titlu":"Imagine 8",
+			"descriere":"Descriere 8",
+			"timp":"08:00-19:00"
+		},
+		{
+			"cale_imagine":"imagine-9.png",
+			"titlu":"Imagine 9",
+			"descriere":"Descriere 9",
+			"timp":"10:00-17:00"
+		},
+		{
+			"cale_imagine":"imagine-10.png",
+			"titlu":"Imagine 10",
+			"descriere":"Descriere 10",
+			"timp":"18:00-22:00"
+		},
+		{
+			"cale_imagine":"imagine-11.png",
+			"titlu":"Imagine 11",
+			"descriere":"Descriere 11",
+			"timp":"07:00-22:00",
+			"autor": "Tobias Krewinkel",
+            "link_autor": "https://www.flickr.com/photos/141443515@N07/",
+            "cc": "CC-BY",
+            "link_cc": "https://creativecommons.org/licenses/by/2.0/"
 		}
 	]
 }
