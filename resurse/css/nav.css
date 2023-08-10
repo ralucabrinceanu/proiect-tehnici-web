@@ -7,6 +7,12 @@ body{
     --latime-bord-meniu: 1px;
 }
 
+body.dark {
+    --culoare-meniu: #6b3e99;
+    --culoare-meniu-selectat: #b088a3;
+}
+
+
 ul.meniu {
     display: flex;
     list-style-type: none;
@@ -102,7 +108,7 @@ ul.meniu ul li a:hover {
 }
 
 nav {
-    background-color: #fff;
+    /* background-color: #fff; */
     height: var(--inaltime-meniu);
     overflow: visible;
     position: relative;

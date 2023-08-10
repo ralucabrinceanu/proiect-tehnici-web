@@ -13,6 +13,57 @@ body {
     transition: font-size 0.3s ease-in-out;
 }
 
+body.dark{
+    --culoare1: #04093c;
+    --culoare2: #6b3e99; 
+    --culoare3: #191970;
+    --culoare4: #8b008b;
+    --culoare5: #b088a3;
+    --culoare6: #4b0082;
+    --culoare7: #2f4f4f;
+    --culoare8: #4682b4;
+
+    
+    background-color: #04093c;
+
+    color: rgb(231, 210, 227);
+}
+.dark footer {
+    background-color: #4682b4;
+}
+.dark #titlu {
+    color: #b088a3;
+}
+.dark #transpus tbody tr:hover td, .dark #transpus tbody tr:hover td:hover{
+    background-color: #04093c;
+}
+
+
+/* body.christmas {
+    --culoare1: #bbe2c8;
+    --culoare2: #35d835; 
+    --culoare3: #fffefe;
+    --culoare4: #FF0000;
+    --culoare5: #800000;
+    --culoare6: #006400;
+    --culoare7: #c74141;
+    --culoare8: #228B22;
+
+    background-color: #bbe2c8;
+
+    color: rgb(0, 0, 0);
+}
+.christmas footer {
+    background-color: #C0C0C0;
+}
+.christmas #titlu {
+    color: #FF0000;
+}
+.christmas #transpus tbody tr:hover td, .darchristmask #transpus tbody tr:hover td:hover{
+    background-color: #bbe2c8;
+} */
+
+
 main {
     background-color: var(--culoare1);
     margin-left: var(--margin-main);

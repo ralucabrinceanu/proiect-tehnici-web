@@ -3,22 +3,44 @@ const fs = require("fs");
 const sharp = require("sharp");
 const ejs = require("ejs");
 const sass = require("sass");
-
+const {Client} = require("pg"); 
+const e = require("express");
 
 var cssBootstrap = sass.compile(__dirname+"/resurse/scss/customizare-bootstrap.scss", {sourceMap:true});
 fs.writeFileSync(__dirname+"/resurse/css/biblioteci/bootstrap-custom.css", cssBootstrap.css);
 
 
+var client = new Client({
+    database:"tehnici_web",
+    user: "raluca",
+    password: "raluca",
+    host: "localhost",
+    port: 5432
+});
+client.connect();
+
+
 app = express(); 
 
 app.set("view engine", "ejs"); 
-// console.log("cale proiect: ", __dirname); 
 app.use("/resurse", express.static(__dirname + "/resurse"));
 
 obGlobal = {
     erori: null,
     imagini: null
 }
+
+app.use("/*", function(req, res, next){
+    client.query("select * from unnest(enum_range(null::tipuri_produse))", function(err, rezTip){
+        if(err){
+            console.log(err);
+            renderError(res, 2);
+        } else {
+            res.locals.optiuniMeniu = rezTip.rows;
+            next();
+        }
+    });
+});
 
 function createImages() {
     var continutFisier = fs.readFileSync(__dirname+"/resurse/json/galerie.json").toString("utf8");
@@ -85,26 +107,49 @@ app.get(["/", "/index", "/home"], function(req, res) {
     res.render("pagini/index", {ip: req.ip, imagini: obGlobal.imagini});
 });
 
-app.get("*/galerie-animata.css",function(req, res) {
-    var sirScss=fs.readFileSync(__dirname+"/resurse/scss/galerie_animata.scss").toString("utf8");
-    rezScss = ejs.render(sirScss, {nrimag: obGlobal.nrimag});
-    var caleScss=__dirname+"/temp/galerie_animata.scss"
-    fs.writeFileSync(caleScss, rezScss);
-    try {
-        rezCompilare = sass.compile(caleScss,{sourceMap:true});
-        
-        var caleCss = __dirname+"/temp/galerie_animata.css";
-        fs.writeFileSync(caleCss, rezCompilare.css);
-        res.setHeader("Content-Type", "text/css");
-        res.sendFile(caleCss);
-    }
-    catch (err) {
-        console.log(err);
-        res.send("Eroare");
-    }
+
+app.get("/produse", function(req, res) {
+    client.query("select * from unnest(enum_range(null::tipuri_produse))", function(err, rezTip) {
+
+        client.query("select min(inaltime), max(inaltime) from plante", function(err, rezInaltime) {
+
+            continuareQuery = ""
+            if (req.query.tip)
+                continuareQuery += ` AND tip_produs = '${req.query.tip}'` 
+
+            client.query("select * from plante where 1 = 1 " + continuareQuery, function(err, rez) {
+                if (err) {
+                    console.log(err);
+                    renderError(res, 2);
+                } 
+                else {
+                    res.render("pagini/produse", 
+                    {produse: rez.rows, 
+                    // optiuni: rezTip.rows,
+                    optiuni: res.locals.optiuniMeniu,
+                    inputs: rezInaltime.rows[0]
+                    });
+                }
+            })
+
+        })
+    });
 });
 
-app.get(["/despre"], function(req, res) {
+app.get("/produs/:id", function(req, res) {
+    client.query("select * from plante where id="+req.params.id, function(err, rez) {
+        if (err) {
+            console.log(err);
+            renderError(res, 2);
+        } 
+        else {
+            res.render("pagini/produs", {prod: rez.rows[0]});
+        }
+    });
+
+});
+
+app.get("/despre", function(req, res) {
     res.render("pagini/despre", {imagini: obGlobal.imagini});
 });
 

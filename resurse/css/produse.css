@@ -1,0 +1,82 @@
+main{
+    --padd-main:1rem;
+    padding-left:var(--padd-main);
+    padding-right:var(--padd-main);
+}
+
+.grid-produse{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 3rem;
+
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.grid-art {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap:1rem;
+}
+
+.grid-produse .produs{
+    border-radius: 2rem;
+    box-shadow: 0px 0px 0.8rem 0.3rem var(--culoare7);
+    overflow: hidden;
+}
+
+.grid-produse .produs h3{
+    background-color: var(--culoare8);
+    text-align: center;
+    margin-top: 0;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.grid-produse .produs h3 a{
+    color:black;
+}
+.grid-produse .produs h3 a:hover{
+    color:var(--culoare5);
+}
+.grid-produse .grid-2 figure{
+    text-align: center;
+}
+.grid-produse .grid-2 figure img{
+    border: 0.5px solid var(--culoare8)
+}
+
+.grid-produse .produs .info-prod p{
+    margin: 20px;
+}
+
+.produs{
+    position: relative;
+}
+
+.selecteaza-cos{
+    display: inline-block;
+    background-color: var(--culoare7);
+    position:absolute;
+    bottom:0.5rem;
+    right:0.5rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    padding:0.3rem;
+    border:1px solid transparent;
+}
+
+.selecteaza-cos:hover{
+    background-color: var(--culoare6);
+    
+    border: 1px solid var(--culoare5);
+}
+
+#tabel-produs, td {
+    border: 1px solid #4682b4;
+}
+
+table {
+    width: 100%;
+    text-align: center;
+}

@@ -1,5 +1,6 @@
 <header>
     <h1 id="titlu">floraria de colt</h1>
+    <button id="tema">tema site</button>
 
     <nav>
         <label id="hamburger" for="ch-menu">
@@ -16,7 +17,7 @@
         <input id="ch-menu" type="checkbox">
 
         <ul class="meniu">
-            <li><a href="#acasa"><i class="fa-sharp fa-solid fa-house"></i><span class="fa-only"> acasa</span></a>
+            <li><a href="/index"><i class="fa-sharp fa-solid fa-house"></i><span class="fa-only"> acasa</span></a>
                 <ul>
                     <li>
                         <a href="/index#div1">bine ati venit</a>
@@ -45,24 +46,25 @@
                 </ul>
             </li>
 
-            <li><a href="#despre">despre noi</a>
+            <li><a href="/despre">despre noi</a>
                 <ul>
                     <li><a href="/despre#istoric">istoric</a></li>
                     <li><a href="/despre#galerie">galerie</a></li>
                 </ul>
             </li>
 
-            <li><a href="#produse">produse</a>
+            <li><a href="/produse">produse</a>
                 <ul>
-                    <li><a href="/produse">toate</a></li>
-                    <li><a href="/produse#flori">flori</a></li>
-                    <li><a href="/produse#plante">plante</a></li>
+                    <% for (opt of locals.optiuniMeniu) { %>
+                    <li><a href="<%- "/produse?tip=" + opt.unnest%>"> <%- opt.unnest%></a></li>
+                    <% } %>
                 </ul>
+                
             </li>
 
-            <li><a href="#cont">contul meu</a></li>
+            <li><a href="/cont">contul meu</a></li>
 
-            <li><a href="#contact">contact</a></li>
+            <li><a href="/contact">contact</a></li>
         </ul>
     </nav>
 </header>

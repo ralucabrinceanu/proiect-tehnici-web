@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html  lang="ro">
+    <head>
+        <title>Floraria de colt</title>
+        <meta name="description" content="Florarie online."/>
+        <meta name="keywords" content="florarie, flori, plante, produse">
+        <link rel="stylesheet" href="/resurse/css/produs.css" type="text/css" />
+        <link rel="stylesheet" href="/resurse/css/layout.css" type="text/css" />
+        <link rel="stylesheet" href="/resurse/css/nav.css" type="text/css" />
+        <link rel="stylesheet" href="/resurse/css/style.css" type="text/css" />
+
+        <%- include("../fragmente/head.ejs") %>
+    </head>
+
+    <body>
+        <%- include("../fragmente/header.ejs") %>
+        <main>
+            <section>
+                <h2>Pagină produs</h2>
+                    <article id="art-produs">
+                        <h3><span class="nume"><%- locals.prod.nume %></span></h3>
+                        <p>Pret: <span class="pret"><%- locals.prod.pret %> </span></p>
+                        <p>Categorie: <span class="tip_produs"><%- locals.prod.tip_produs %> </span></p>
+                        <p>Descriere: <span class="descriere"><%- locals.prod.descriere %> </span></p>
+                        <p>Conditii de lumina: <span class="conditii_de_lumina"><%- locals.prod.conditii_de_lumina %> </span></p>
+                        <p>Eveniment: <span class="eveniment"><%- locals.prod.eveniment %> </span></p>
+                        <p>Inaltime: <span class="val-inaltime"><%- locals.prod.inaltime %> </span></p>
+                        <p>Continent: <span class="origine"><%- locals.prod.origine %> </span></p>
+                        <p>Usor de intretinut: <span class="usor_de_intretinut"><%- locals.prod.usor_de_intretinut %> </span></p>
+                        <p>Data adăugare: <span class="data_adaugare">
+                            <time datetime="<%- prod.data_adaugare %>">
+                                <% 
+                                    luni = ["Ianuarie", "Februarie", "Martie", "Aprilie", "Mai", "Iunie", "Iulie", "August", "Septembrie", "Octombrie", "Noiembrie", "Decembrie"];
+                                    zile = ["Duminica", "Luni", "Marti", "Miercuri", "Joi", "Vineri", "Sambata"];                                                        %>
+                                <%- prod.data_adaugare.getDate() %>
+                                <%- luni[prod.data_adaugare.getMonth()] %>
+                                <%- prod.data_adaugare.getFullYear() %>
+                                (<%- zile[prod.data_adaugare.getDay()] %>)
+                            </time>    
+                        </span></p>
+                        
+                        <figure class="imag-produs">
+                            <img  src="/resurse/imagini/produse/<%- locals.prod.imagine %>" alt="[imagine <%- locals.prod.nume %>]" />
+                        </figure>    
+                    </article>
+                
+            </section>
+        </main>
+
+        <%- include("../fragmente/footer") %>
+    </body>
+</html>
