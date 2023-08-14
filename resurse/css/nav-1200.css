@@ -12,3 +12,8 @@
     overflow-y: hidden;
     white-space: nowrap;
 }
+
+/*  */
+#banner {
+    animation: none;
+}

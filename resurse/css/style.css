@@ -203,3 +203,62 @@ iframe {
         background-image: url(/resurse/imagini/background-about.png);
     }
 }
+
+
+/* etapa 6 */
+.tema-site, #rangeStyle {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.tema-site>div {
+    margin-left: 5px;
+} 
+
+#inpMargin {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+
+
+/* stilizare banner cookie */
+#banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    padding: 10px;
+    font-size: 1.2rem;
+    background-color: var(--culoare3);
+    color: var(--culoare5);
+    animation: animatie_cookie 3s linear forwards;
+}
+
+@keyframes animatie_cookie {
+    0% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    50% {
+    	opacity: 1;
+        background-color: var(--culoare2);
+        transform: translateY(-20px);
+        color: var(--culoare3);
+        
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+#mesaj-cookies {
+    margin-left: 10px;
+}
+
+#ok_cookies {
+    margin-left: 10px;
+    color: #00004b;
+}

@@ -80,3 +80,17 @@ table {
     width: 100%;
     text-align: center;
 }
+
+#butoaneFiltrare{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#butoaneFiltrare > button div{
+    display: inline;
+}
+
+#butoaneFiltrare > div {
+    display: inline-block;
+}

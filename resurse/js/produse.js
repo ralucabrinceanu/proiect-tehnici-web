@@ -3,21 +3,32 @@ window.addEventListener("load", function () {
     x = 100;
 
     document.getElementById("inp-inaltime").onchange = function() {
-        document.getElementById("infoRange").innerHTML = `(${this.value} cm)`
+        document.getElementById("infoRange").innerHTML = `(${this.value})`
     }
 
 
-    document.getElementById("filtrare").onclick = function() {
+    document.getElementById("i_textarea").onchange = function() {
+        if (!this.value.toLowerCase().trim().match(new RegExp("^[a-zA-Z\- 0-9]*$"))) {
+            this.classList.add("is-invalid");
+        } else {
+            this.classList.remove("is-invalid");
+        }
+    }
 
+
+    // document.getElementById("filtrare").onclick = function() {    
+    function filtreaza () {
         // verificare input-uri
         condValidare = true;
         var inpNume = document.getElementById("inp-nume").value.toLowerCase().trim();
         var inpTextarea = document.getElementById("i_textarea").value.toLowerCase().trim();
-        condValidare = condValidare && inpNume.match(new RegExp("^[a-zA-Z]*$")) && inpTextarea.match(new RegExp("^[a-zA-Z\- 0-9]*$"));
-        if (!condValidare) {
-            alert("inputuri gresite");
-            return;
-        }
+        // condValidare = condValidare && inpNume.match(new RegExp("^[a-zA-Z]*$")) && inpTextarea.match(new RegExp("^[a-zA-Z\- 0-9]*$"));
+        // if (!condValidare) {
+        //     alert("inputuri gresite");
+        //     return;
+        // }
+
+
 
         var inpTip = document.getElementById("inp-tip").value.toLowerCase().trim();
 
@@ -25,8 +36,10 @@ window.addEventListener("load", function () {
         var radioTrue = document.getElementById("truer");
         var radioFalse = document.getElementById("falser");
 
-        var inpInaltime = document.getElementById("inp-inaltime").value;
+        var inpInaltime = parseInt(document.getElementById("inp-inaltime").value);
 
+
+        prodAfisate = 0;
         var produse = document.getElementsByClassName("produs");
         for (let produs of produse) {
             var cond1 = false, cond2 = false, cond3 = false, cond4 = false, cond5 = false;
@@ -48,7 +61,7 @@ window.addEventListener("load", function () {
                 cond3 = true;
             }
 
-            let dim = produs.getElementsByClassName("val-inaltime")[0].innerHTML;
+            let dim = parseInt(produs.getElementsByClassName("val-inaltime")[0].innerHTML);
             if (dim >= inpInaltime) {
                 cond4=true;
             }
@@ -56,17 +69,41 @@ window.addEventListener("load", function () {
             let descriere = produs.getElementsByClassName("val-descriere")[0].innerHTML.toLowerCase().trim();
             if (descriere.includes(inpTextarea)) {
                 cond5 = true;
-            }            
-        
-
-            if (cond1 && cond2 && cond3 && cond4 && cond5 ) {
+            }      
+            
+           
+            if (cond1 && cond2 && cond3 && cond4 && cond5) {
                 produs.style.display = "block";
+                prodAfisate++;
             }
         }
+
+        msj = document.getElementById("mesaj");
+        if (!prodAfisate) {
+            if (!msj) {
+                mesaj = document.createElement('p');
+                mesaj.id = 'mesaj';
+                mesaj.innerHTML = 'nu exista produse conform filtrarii curente';
+
+                var prod= document.getElementById('produse');
+                prod.appendChild(mesaj);
+                mesaj.style = `text-align:center; `
+            }
+            else {
+                if (msj) {
+                    msj.remove();
+                }
+            }
+        }
+
     }
-
-
+    
     document.getElementById("resetare").onclick = function() {
+
+        var confirmResetare = confirm('vrei sa resetezi filtrele?');
+        if(confirmResetare) {} else { return; }
+        
+
         // resetare produse 
         var produse = document.getElementsByClassName("produs");
         for (let produs of produse) {
@@ -78,6 +115,10 @@ window.addEventListener("load", function () {
         document.getElementById("sel-toate").selected = true;
         document.getElementById("toater").checked = true;
         document.getElementById("i_textarea").value = "";
+        // document.getElementById("i_textarea").classList.remove("is-invaid");
+
+        document.getElementById("inp-inaltime").value = document.getElementById("inp-inaltime").min;
+        document.getElementById("infoRange").innerHTML = '(' + parseInt(document.getElementById("minRange").textContent) + ')';
     }
 
 
@@ -109,6 +150,32 @@ window.addEventListener("load", function () {
     }
 
 
+    document.getElementById("calculare").onclick = function(){
+        var produse = document.getElementsByClassName("produs");
+        let suma = 0;
+        for(let prod of produse) {
+            if(prod.style.display != "none") {
+                suma += parseFloat(prod.getElementsByClassName("val-pret")[0].innerHTML);
+            }
+        }
+        suma = suma / produse.length;
+
+        if(!document.getElementById("rezultat")) {
+            rezultat = document.createElement("div");
+            rezultat.id = "rezultat";
+            rezultat.innerHTML = "media preturilor: " + suma + " lei";
+
+            var ps = document.getElementById("butoaneFiltrare");
+            ps.parentNode.insertBefore(rezultat, ps);
+            rezultat.style = `
+                position: fixed;
+                right: 90px;
+            `
+            setTimeout(function(){
+                document.getElementById("rezultat").remove();
+            }, 2000);
+        }
+    }
 
 
     // window.onkeydown = function(e) {
@@ -140,5 +207,19 @@ window.addEventListener("load", function () {
     //         }
     //     }
     // }
+
+
+
+    // filtrare onchange 
+    document.getElementById("inp-nume").onchange = filtreaza;
+    document.getElementById("i_textarea").onchange = filtreaza;
+    document.getElementById("inp-tip").onchange = filtreaza;
+    document.getElementById("toater").onchange = filtreaza;
+    document.getElementById("truer").onchange = filtreaza;
+    document.getElementById("falser").onchange = filtreaza;
+    document.getElementById("inp-inaltime").onchange = function() {
+        filtreaza();
+        document.getElementById("infoRange").innerHTML = '(' + parseInt(this.value) +')';
+    };
 
 })

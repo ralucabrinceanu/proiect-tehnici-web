@@ -75,10 +75,12 @@ ul.meniu ul {
 
 @keyframes animatie-hamburger {
   from {
-    clip-path: circle(0% at top left);
+    -webkit-clip-path: circle(0% at top left);
+            clip-path: circle(0% at top left);
   }
   to {
-    clip-path: circle(125%);
+    -webkit-clip-path: circle(125%);
+            clip-path: circle(125%);
   }
 }
 .fa-only {
@@ -92,6 +94,4 @@ ul.meniu ul {
   overflow-x: auto;
   overflow-y: hidden;
   white-space: nowrap;
-}
-
-/*# sourceMappingURL=nav-700.css.map */
+}/*# sourceMappingURL=nav-700.css.map */

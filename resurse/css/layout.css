@@ -39,7 +39,7 @@ body.dark{
 }
 
 
-/* body.christmas {
+body.christmas {
     --culoare1: #bbe2c8;
     --culoare2: #35d835; 
     --culoare3: #fffefe;
@@ -61,7 +61,7 @@ body.dark{
 }
 .christmas #transpus tbody tr:hover td, .darchristmask #transpus tbody tr:hover td:hover{
     background-color: #bbe2c8;
-} */
+}
 
 
 main {

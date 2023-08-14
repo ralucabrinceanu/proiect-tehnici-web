@@ -12,54 +12,64 @@
         <%- include("../fragmente/header.ejs") %>
 
         <main>
-            <label> Cauta dupa nume: <input type="text" id="inp-nume"></label>
-            <br>
+            <div class="row" id="inpMargin">
+                <div class="col-6 col-lg-3">
+                    <label> Cauta dupa nume: <input type="text" id="inp-nume"></label>
+                </div>
 
-            <label>Cauta dupa categorie:
-                <select id="inp-tip">
-                    <option id="sel-toate" selected value="oricare">oricare</option>
-                    <% for (let opt of locals.optiuni) { %>
-                        <option value="<%- opt.unnest %>"><%- opt.unnest %> </option>
-                    <% } %>
-                </select>
-            </label>
-            <br>
+                <div class="col-6 col-lg-3">
+                    <label>Cauta dupa categorie:
+                        <select id="inp-tip">
+                            <option id="sel-toate" selected value="oricare">oricare</option>
+                            <% for (let opt of locals.optiuni) { %>
+                                <option value="<%- opt.unnest %>"><%- opt.unnest %> </option>
+                            <% } %>
+                        </select>
+                    </label>
+                </div>
+                
+                <div class="col-6 col-lg-3">
+                    <div class="btn-group" role="group">Usor de intretinut:  
+                        <label class="btn btn-outline-primary">Toate
+                            <input id="toater" checked name="gr_rad" type="radio"/> 
+                        </label><br>
+                        <label class="btn btn-outline-primary">Da
+                            <input id="truer" name="gr_rad" type="radio"/> 
+                        </label><br>
+                        <label class="btn btn-outline-primary">Nu
+                            <input id="falser" name="gr_rad" type="radio"/> 
+                        </label>
+                    </div>
+                </div>
 
-            <div>Usor de intretinut: <br>
-                <label>Toate
-                    <input id="toater" checked name="gr_rad" type="radio"/> 
-                </label><br>
-                <label>Da
-                    <input id="truer" name="gr_rad" type="radio"/> 
-                </label><br>
-                <label>Nu
-                    <input id="falser" name="gr_rad" type="radio"/> 
-                </label>
+                <div class="col-6 col-lg-3">
+                    <label class="form-label" id="rangeStyle">cauta dupa inaltime:
+                        <span id="minRange"><%- locals.inputs.min %></span>
+                        <input id="inp-inaltime" type="range" class="form-range" value="<%-locals.inputs.min %>" min="<%-locals.inputs.min %>" max="<%-locals.inputs.max %>" step=1>
+                        <span id="maxRange"><%- locals.inputs.max %></span>
+                        <span id="infoRange">(<%- locals.inputs.min %>)</span>
+                    </label>    
+                </div>
+
+                <div class="col-6 col-lg-3">
+                    <div class="form-floating">
+                        <input type="descriere" class="form-control" id="i_textarea">
+                        <label for="i_textarea">Cauta in descriere</label>
+                    </div>
+                </div>
+
             </div>
-            <br>
-
-            <label>Cauta in descriere:
-                <textarea id="i_textarea"></textarea>
-            </label>
-            <br><br>
-
-            <label>Inaltime minima:
-                <span id="minRange"><%- locals.inputs.min %></span>
-                <input type="range" id="inp-inaltime" value="<%-locals.inputs.min %>" min="<%-locals.inputs.min %>" max="<%-locals.inputs.max %>" step=1>
-                <span id="maxRange"><%- locals.inputs.max %></span>
-                <span id="infoRange">(<%- locals.inputs.min %> cm)</span>
-            </label>
+            
             
 
-            <p>
-            <button id="filtrare">Filtreaza</button> 
-            <button id="resetare">Reseteaza</button><br/>
-            <button id="sortCrescNume">Sortare cresc</button>
-            <button id="sortDescrescNume">Sorteaza descresc</button>
-            <button id="calculare">Total plata</button>
+            <p id="butoaneFiltrare">
+            <button class="btn btn-secondary" id="filtrare"><i class="bi bi-filter"></i> <div class="d-none d-sm-block">filtrare</div></button> 
+            <button class="btn btn-secondary" id="resetare"><i class="bi bi-arrow-clockwise"></i> <div class="d-none d-sm-block">resetare</div></button>
+            <button class="btn btn-secondary" id="sortCrescNume"><i class="bi bi-arrow-up"></i> <div class="d-none d-sm-block">sortare crescator</div></button>
+            <button class="btn btn-secondary" id="sortDescrescNume"><i class="bi bi-arrow-down"></i> <div class="d-none d-sm-block">sortare descrescator</div></button>
+            <button class="btn btn-secondary" id="calculare"> <div>calculare</div></button>
             </p>
             
-            <p id="p-suma">Apăsați Alt+"c" pentru suma preturilor produselor afișate. </p>
                         
             <section id="produse">
                 <h2>Produse</h2>

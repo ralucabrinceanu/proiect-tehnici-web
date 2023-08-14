@@ -1,7 +1,7 @@
 @use '../../node_modules/bootstrap/scss/bootstrap.scss' with (
 
     $primary: #af557d,
-    $secondary: #eccccf,
+    $secondary: #F2C1D1,
     $body-color: black,
     $grid-breakpoints: (
         xs: 0,
@@ -20,4 +20,16 @@
     $table-caption-color: black,
     $link-color: black,
     $body-bg: #ffffff,
+
+
+    // etapa 6 - butoane 
+    $btn-border-width: 1px,
+
+    $form-range-thumb-width: 1.5rem, 
+    $form-range-thumb-height: 1.5rem,
+    $form-range-track-bg: #9EB9D4,
+    $form-range-thumb-bg: #2d3575,
+    $form-range-thumb-active-bg: #9EB9D4,
+    $form-range-thumb-focus-box-shadow: #9EB9D4,
+
 )

@@ -44,9 +44,14 @@
     /* 5 */
     /* meniul sub formă de listă neordonată 
     cu elementele unele sub altele (subopțiunile fiind în subliste).  */
+
+    #titlu { 
+        margin-top: 100px;
+
+    }
     h1 {
         text-align: center;
-        margin-top: 10%;
+        /* margin-top: 10%; */
     }
 
     ul.meniu {
@@ -68,7 +73,6 @@
     }
 
     /* 6 */
-    /* watermark centrat pe pagina */
     #watermark {
         color: black;
         display: block;
@@ -97,5 +101,12 @@
         margin-left: 1cm;
         margin-right: 2cm;
     }
+
+
+    /* etapa 6 */
+    #mesaj-cookies {
+        display: none;
+    }
+
 
 }
