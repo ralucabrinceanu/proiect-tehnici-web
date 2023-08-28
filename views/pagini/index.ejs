@@ -31,6 +31,25 @@
             <div id="grid-pagina">
                 <section id="div1">
                     <div><h2>bine ati venit</h2></div>
+                    <% if(!locals.utilizator) { %>
+                        <form id="form_inreg"  method="post" class="date"  action="/login"  enctype="multipart/form-data">
+                            <p>
+                                <label>
+                                    Username: <input type="text" name="username" id="inp-username" value="" required pattern="[A-Za-z0-9]+">
+                                </label>
+                            </p>
+                            <p>
+                                <label>
+                                    Parola: <input id="parl" type="password" required  name="parola" value="">
+                                </label>
+                            </p>
+                            <p><input type="submit" value="Logare"></p>
+                        </form>
+                        <p><%- locals.eroareLogin %> </p>
+                        <% } else {%>
+                           <%- locals.succesLogin %>
+                        <% }  %>
+        
                     <p>
                         daca ai cautat o <b>florarie online</b> care sa le faca pe toate - <b>livrari buchete, livrari aranjamente</b><b>sau livrari plante</b>, ei bine ai ajuns unde trebuie - la Floraria de colt.
                     </p>
@@ -158,20 +177,14 @@
                 <section id="div5">
                     <h2>utilizatori online</h2>
                     <div>
-                        <ul>
-                            <li>
-                                <span>Dobrescu</span>
-                            </li>
-                            <li>
-                                <span>Ionescu</span>
-                            </li>
-                            <li>
-                                <span>Petrescu</span>
-                            </li>
-                            <li>
-                                <span>Popescu</span>
-                            </li>
-                        </ul>
+                        <ol>
+                            
+                            <% for (let u of locals.useriOnline) { %>
+                                <li>
+                                    <%- u.username %> (<a href="mailto:<%= u.email %>"><%= u.email %></a>)
+                                </li>
+                            <% } %>
+                        </ol>
                     </div>
                 </section>
 

@@ -2,6 +2,12 @@
 window.addEventListener("load", function () {
     x = 100;
 
+
+    //  ------------------------ preluare date cos virtual din localStorage
+    
+    
+
+
     document.getElementById("inp-inaltime").onchange = function() {
         document.getElementById("infoRange").innerHTML = `(${this.value})`
     }

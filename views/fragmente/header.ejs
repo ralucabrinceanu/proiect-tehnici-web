@@ -67,12 +67,30 @@
                     <li><a href="<%- "/produse?tip=" + opt.unnest%>"> <%- opt.unnest%></a></li>
                     <% } %>
                 </ul>
-                
             </li>
 
-            <li><a href="/cont">contul meu</a></li>
+            <li><a href="/inregistrare">inregistrare</a></li>
 
             <li><a href="/contact">contact</a></li>
+
+            <!-- utilizator pe toate paginile -->
+            <% if(locals?.utilizator?.areDreptul?.(Drepturi.vizualizareUtilizatori)) { %>
+                <li><div>Administrare</div>
+                    <ul>
+                        <li><a href="/useri">Useri</a></li>
+                        <li><a href="/grafice">Grafice</a></li>
+                        <li><a href="/comenzi">Comenzi</a></li>
+                    </ul>
+                </li>
+            <% } %>
+            <% if(locals.utilizator) { %>
+                <li><div title="<%= locals.utilizator.prenume + ' ' + locals.utilizator.nume %>"><%- locals.utilizator.username %></div>
+                    <ul>
+                        <li><a href="/profil">Profil</a></li>
+                        <li><a href="/logout">Logout</a></li>
+                    </ul>
+                </li>
+            <% } %>
         </ul>
     </nav>
 </header>

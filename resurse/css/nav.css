@@ -1,7 +1,7 @@
 body{
     --culoare-meniu: var(--culoare7);
     --culoare-meniu-selectat: var(--culoare1) ;
-    --inaltime-meniu: 25px;
+    --inaltime-meniu: 40px;
     --inaltime-bara: 4px;
     --latime-buton: 150px;
     --latime-bord-meniu: 1px;
@@ -66,6 +66,7 @@ ul.meniu a {
 ul.meniu>li:last-child::before, ul.meniu>li:nth-last-child(2)::before {
     content: "";
     width: var(--latime-buton);
+    /* width: 380px; */
     height: 0;
     background-image: linear-gradient(to right, var(--culoare5), white, var(--culoare5) );
     border-radius: 4px;
