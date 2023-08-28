@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ro">
+	<head>
+		<title>Profil</title>
+		<%- include("../fragmente/head") %>
+        
+		<link rel="stylesheet" type="text/css" href="/resurse/css/contact.css" />
+		<% if(locals.utilizator) { %>
+		<script>
+			const serverDate = "<%= locals.utilizator.data_nastere %>";
+			const localDate = new Date(serverDate);
+			// populez inputurile din pagina de profil cu datele din tabel (incarcate prin EJS)
+			window.addEventListener("DOMContentLoaded", function(){
+				document.getElementById("inp-username").value="<%= locals.utilizator.username %>";
+				document.getElementById("inp-username").readOnly=true;
+				document.getElementById("inp-nume").value="<%= locals.utilizator.nume %>";
+				document.getElementById("inp-prenume").value="<%= locals.utilizator.prenume %>";
+				document.getElementById("inp-email").value="<%= locals.utilizator.email %>";
+				document.getElementById("data_nastere").value=`${localDate.getFullYear()}-${("0" + (localDate.getMonth() + 1)).slice(-2)}-${("0" + localDate.getDate()).slice(-2)}`;
+				document.getElementById("p-reintrod").remove();
+				var optiuni=document.getElementById("sel-culoare").options
+				for (let opt of optiuni)
+					if (opt.value=="<%= locals.utilizator.culoare_chat %>")
+						opt.selected=true;
+
+				// incarc poza de profil in placeholder imd dupa ce am selectat-o
+				const imgPicker = document.getElementById("sel-poza");
+				const profileImg = document.getElementById("profile-img");
+				imgPicker.addEventListener("change", () => {
+					const selectedFile = imgPicker.files[0];
+
+					if (selectedFile) {
+						const objectURL = URL.createObjectURL(selectedFile);
+						profileImg.src = objectURL
+					} else {
+						profileImg.src = '';
+					}
+				});
+			});
+		</script>
+		<% } %>
+	</head>
+	<body class="profil">
+		<header>
+			<%- include("../fragmente/header") %>
+		</header>
+		<main>
+			<% if(locals.utilizator) { %>
+			<section>
+				<h2>Profil</h2>
+				<p><%= locals.raspuns %></p>
+				<img id="profile-img" src="/<%- locals.utilizator.poza%>" alt="nu ati incarcat poza de profil" />
+			</section>
+			<%- include("../fragmente/formular",{action:"/profil"}) %>
+		</main>
+		<% } else { %>
+			<p>Nu sunteti logat</p>
+		<% } %>
+		<%- include("../fragmente/footer") %>
+		
+	</body>
+</html>

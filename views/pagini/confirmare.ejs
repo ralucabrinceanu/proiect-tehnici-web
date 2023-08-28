@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+	<head>
+		<title>Confirmare</title>
+		<%- include("../fragmente/head") %>
+	</head>
+	<body class="container">
+		<header>		
+			<%- include('../fragmente/header') %>	
+		</header>
+		<main>
+			<style>
+				.confirmare-text {
+					font-size: 18px;
+					background-color: lightblue;
+					border-radius: 15px;
+					padding: 5px 10px;
+				}
+
+				.confirmare-div {
+					padding: 30px;
+				}
+			</style>
+			
+			<div class="confirmare-div">
+				<h1>Confirmare mail</h1>
+				<p>Buna, <%= locals.username %> </p>
+				<p><span class="confirmare-text">Bine ai venit</span> in comunitatea "Floraria de colt".</p>
+	
+			</div>
+		</main>
+		
+		
+		<%- include("../fragmente/footer") %>
+		
+		
+	</body>
+</html>

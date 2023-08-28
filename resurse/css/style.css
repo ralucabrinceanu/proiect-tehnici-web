@@ -155,19 +155,27 @@ iframe {
     width: 50vw;
     margin-left: 0;
 
-    border-top-width: 4px;
-    border-top-color: transparent;
-    border-bottom-width: 4px;
-    border-bottom-color: transparent;
+    border-top-width: 4px !important;
+    border-top-color: transparent !important;
+    border-bottom-width: 4px !important;
+    border-bottom-color: transparent !important;
 
-    border-left-width: 15px;
-    border-left-color: var(--culoare6);
-    border-right-width: 15px;
-    border-right-color: var(--culoare6);
+    border-left-width: 15px !important;
+    border-left-color: var(--culoare6) !important;
+    border-right-width: 15px !important;
+    border-right-color: var(--culoare6) !important;
 
     background-clip: content-box;
 
     opacity: 1 !important;
+
+    /* bootstrap fix */
+    margin: unset !important;
+    color: unset !important;
+    box-sizing: unset !important;
+    border-left-style: solid !important;
+    border-right-style: solid !important;
+    border-bottom-style: solid !important;
 }
 
 #istoric {

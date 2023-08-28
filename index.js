@@ -242,11 +242,16 @@ app.get("/produs/:id", function(req, res) {
 
 // http://${Utilizator.numeDomeniu}/cod/${utiliz.username}/${token}
 
-app.get("/cod/:username/:token", function(req, res) {
+// "/cod/:username/:token"
+app.get("/confirmare_inreg/:token1/:username_inv/:token2", function(req, res) {
     console.log(req.params);
-    
+    // const token1 = req.params.token1;
+    // const token2 = req.params.token2;
+    // facem destructuring (e mai scurt)
+    const { token1, token2, username_inv } = req.params;
+    const username = username_inv.split('').reverse().join('');
     try {
-        Utilizator.getUtilizDupaUsername(req.params.username, {res:res, token: req.params.token}, function(u, obparam) {
+        Utilizator.getUtilizDupaUsername(username, {res, token: token1}, function(u, obparam) {
             AccesBD.getInstanta().update({
                 tabel: "utilizatori",
                 campuri: ["confirmat_mail"],
@@ -258,7 +263,7 @@ app.get("/cod/:username/:token", function(req, res) {
                     renderError(res, 3);
                 }
                 else {
-                    res.render("pagini/confirmare.ejs");
+                    res.render("pagini/confirmare.ejs", {username});
                 }
             })
         })
@@ -289,7 +294,7 @@ app.post("/login", function(req, res){
                 obparam.res.redirect("/index");
             }
             else {
-                obparam.res.render("pagini/index", {eroareLogin: "date logare incorecte sau nu a fost confirmat mail-ul", imagini:obGlobal.imagini});
+                obparam.res.render("pagini/index", {eroareLogin: "date logare incorecte sau nu a fost confirmat mail-ul", imagini:obGlobal.imagini, useriOnline: []});
             }
         })
     })
@@ -307,7 +312,10 @@ app.post("/profil", function(req, res){
     var formular= new formidable.IncomingForm();
  
     formular.parse(req,function(err, campuriText, campuriFile){
-       
+       // TODO: De pus poza (vezi "name" de la poza din formular.ejs)
+       // ** trb umblat la "campuri" si "valori"
+       // ! trb sa te asiguri ca poza se afla in locals.utilizator -> vezi comentariul de mai jos
+       // console.log(req.session.utilizator);
         var parolaCriptata=Utilizator.criptareParola(campuriText.parola);
         AccesBD.getInstanta().update(
             {tabel:"utilizatori",
@@ -336,7 +344,8 @@ app.post("/profil", function(req, res){
                 req.session.utilizator.culoare_chat= campuriText.culoare_chat;
                 res.locals.utilizator=req.session.utilizator;
             }
-            // res.render("pagini/profil",{mesaj:"Update-ul s-a realizat cu succes."});
+            // TODO: de luat mesajul de mai jos in "profil.ejs";
+            res.render("pagini/profil",{mesaj:"Update-ul s-a realizat cu succes."});
         });
     });
 });
