@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html  lang="ro">
+    <head>
+        <meta name="keywords" content="telefon, email, adresa">
+        <meta name="description" content="Florarie.">
+        <!-- <link rel="stylesheet" href="/resurse/css/produse.css" type="text/css" /> -->
+        <title>Ștergere cont</title>
+        <%- include("../fragmente/head") %>     
+        <style>
+            #form_inreg{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+        </style>
+    </head>
+    <body>
+    <%- include("../fragmente/header") %>
+
+    <main>
+    <div class="afisaj">
+        <h2>Ștergere cont</h2>
+        <form id="form_inreg"  method="post" class="date"  action="/stergere_cont"  enctype="multipart/form-data">
+            <p>
+                <label>
+                    introduceti parola pentru a confirma stergerea: <input id="parl"  class="form-control" type="password" required  name="parola" value="">
+                </label>
+            </p>
+            <p>
+                <input class="btn btn-primary" type="submit" value="Trimite">
+                <input class="btn btn-primary" type="reset" value="Reseteaza">
+            </p>
+        </form>
+    </div>
+</main>
+
+<%- include("../fragmente/footer") %>
+</body>
+</html>

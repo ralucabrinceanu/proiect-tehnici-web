@@ -1,0 +1,45 @@
+DROP TYPE IF EXISTS tipuri_produse;
+DROP TYPE IF EXISTS conditii_lumina;
+
+
+CREATE TYPE tipuri_produse AS ENUM('floare', 'planta', 'planta in ghiveci');
+CREATE TYPE conditii_lumina AS ENUM('soare', 'semi-umbra', 'umbra');
+
+
+CREATE TABLE IF NOT EXISTS plante (
+	id serial PRIMARY KEY,
+	nume VARCHAR(50) UNIQUE NOT NULL, 
+	descriere TEXT,
+	imagine VARCHAR(300),
+	tip_produs tipuri_produse DEFAULT 'floare',
+	conditii_de_lumina conditii_lumina DEFAULT 'semi-umbra',
+	pret NUMERIC(8, 2) NOT NULL,
+	inaltime INT,
+	data_adaugare TIMESTAMP DEFAULT current_timestamp,
+	origine VARCHAR(20),
+	eveniment VARCHAR[],
+	usor_de_intretinut BOOLEAN NOT NULL DEFAULT TRUE
+);
+
+
+INSERT into plante (nume, descriere, imagine, tip_produs, conditii_de_lumina, pret, inaltime, origine, eveniment, usor_de_intretinut) VALUES 
+('Bonsai Ficus Ginseng', 'descriere 1', 'ginseng-prod.jpg', 'planta in ghiveci', 'semi-umbra', 80, 35, 'Asia', '{"aniversare"}', True),
+('Ranunculus', 'descriere 2', 'ranunculus-prod.jpg', 'floare', 'soare', 25, 20, 'Europa', '{"aniversare", "botez", "nunta"}', False),
+('Bujori', 'descriere 3', 'peonies-prod.jpg', 'floare', 'soare', 20, 30, 'Europa', '{"nunta", "aniversare"}', True),
+('Hortensii', 'descriere 4', 'hydrangeas-prod.jpg', 'floare', 'semi-umbra', 20, 25, 'America', '{"botez", "nunta"}', True),
+('Lalele', 'descriere 5', 'tulips-prod.jpg', 'floare', 'umbra', 10, 30, 'Europa', '{"aniversare"}', True),
+('Lisianthus', 'descriere 6', 'lisianthus-prod.jpg', 'floare', 'umbra', 15, 20, 'America', '{"botez", "nunta"}', False),
+('Crin', 'descriere 7', 'lily-prod.jpg', 'floare', 'semi-umbra', 15, 30, 'Europa', '{"nunta"}', True),
+('Orhidee', 'descriere 8', 'orchid-prod.jpg', 'planta in ghiveci', 'soare',60, 40, 'Asia', '{"aniversare"}', True),
+('Gerbera', 'descriere 9', 'jerberas-prod.jpg', 'floare', 'soare', 5, 30, 'Europa', '{"botez"}', True), 
+('Lamai', 'descriere 10', 'lemon-prod.jpg', 'planta in ghiveci', 'soare', 650, 90, 'Africa', '{"aniversare", "nunta"}', False),
+('Yucca', 'descriere 11', 'yucca-prod.jpg', 'planta in ghiveci', 'semi-umbra', 500, 85, 'Asia', '{"aniversare"}', False),
+('Palmiera Dracena', 'descriere 12', 'palmier-prod.jpg', 'planta in ghiveci', 'soare', 300, 150, 'Africa', '{"aniversare"}', False),
+('Dracaena', 'descriere 13', 'dracaena-prod.jpg', 'planta', 'umbra', 21, 45, 'Asia', '{"casa noua"}', True),
+('Ficus Robusta', 'descriere 14', 'robusta-prod.jpg', 'planta in ghiveci', 'semi-umbra', 290, 28, 'Asia', '{"casa noua", "aniversare"}', False),
+('Ficus Lyrata Bambino', 'descriere 15', 'bambino-prod.jpg', 'planta in ghiveci', 'soare', 70, 18, 'America', '{"aniversare", "casa noua"}', True),
+('Strelitzia', 'descriere 16', 'strelitzia-prod.jpg', 'planta in ghiveci', 'umbra', 130, 19, 'Europa', '{"casa noua"}', True),
+('Euphorbia Acrurensis', 'descriere 17', 'euphorbia-prod.jpg', 'planta in ghiveci', 'soare', 400, 26, 'Africa', '{"casa noua"}', True),
+('Clusia', 'descriere 18', 'clusia-prod.jpg', 'planta in ghiveci', 'semi-umbra', 170, 23, 'Europa', '{"casa noua"}', False),
+('Cordyline Indivisa', 'descriere 19', 'indivisa-prod.jpg', 'planta in ghiveci', 'semi-umbra', 200, 28, 'Asia', '{"casa noua", "aniversare"}', True),
+('Pachira', 'descriere 20', 'pachira-prod.jpg', 'planta in ghiveci','umbra', 240, 34, 'Europa', '{"casa noua"}', False);

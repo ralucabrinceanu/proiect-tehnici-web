@@ -30,7 +30,8 @@
         <main>
             <div id="grid-pagina">
                 <section id="div1">
-                    <div><h2>bine ati venit</h2></div>
+                    <div><h2>Bine ati venit in magazinul nostru online</h2></div>
+
                     <% if(!locals.utilizator) { %>
                         <form id="form_inreg"  method="post" class="date"  action="/login"  enctype="multipart/form-data">
                             <p>
@@ -49,10 +50,22 @@
                         <% } else {%>
                            <%- locals.succesLogin %>
                         <% }  %>
-        
-                    <p>
-                        daca ai cautat o <b>florarie online</b> care sa le faca pe toate - <b>livrari buchete, livrari aranjamente</b><b>sau livrari plante</b>, ei bine ai ajuns unde trebuie - la Floraria de colt.
-                    </p>
+
+                    <article>
+                        <h3>Flori proaspete in fiecare zi</h3>
+                        <p>Stim ca <b>astazi</b> este o zi specială. 
+                            De aceea, avem <b>mereu</b> flori proaspete în stoc pentru a vă bucura 
+                            de frumusețea lor în orice moment. 
+                        </p>
+                        <aside>
+                            <h4>Despre oferte</h4>
+                            <p>Vizitați-ne în magazin pentru a descoperi ofertele noastre de sezon și 
+                                promoțiile curente. Fiecare client este valorat, iar noi facem tot
+                                posibilul pentru a vă oferi cele mai bune produse la cele mai bune prețuri.
+                            </p>
+                        </aside>
+                    </article>
+                    
 
                     <details>
                         <summary>oferte disponibile</summary>

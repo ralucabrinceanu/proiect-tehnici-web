@@ -14,10 +14,11 @@ window.addEventListener("DOMContentLoaded", function() {
     }
 
 
+    // pagina curenta
     locatieMeniu = document.querySelectorAll(`a[href='${window.location.pathname}']`)[0];
     locatieMeniu.style = `
         font-weight: bold;
         color: #af557d;
     `
-
+    
 });

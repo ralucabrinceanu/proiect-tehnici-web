@@ -75,6 +75,7 @@
                 <h2>Produse</h2>
                 <div class="grid-produse">
                     <% for( let prod of locals.produse) { %>
+
                         <article class="produs" >
                             <h3 class="nume">Nume: <a href="/produs/<%-prod.id %>" ><span class="val-nume"><%- prod.nume%></span></a></h3>
 
@@ -128,7 +129,7 @@
                                         <p class="descriere">Descriere: <span class="val-descriere"><%- prod.descriere%></span></p>                                
                                         <p class="tip_produs">Tip: <span class="val-tip_produs"><%- prod.tip_produs %></span></p>
                                         <p class="inaltime">Inaltime: <span class="val-inaltime"><%- prod.inaltime %></span></p>
-                                    </div>        
+                                    </div>    
 
                                 </div>
 

@@ -83,14 +83,18 @@
                     </ul>
                 </li>
             <% } %>
+            
             <% if(locals.utilizator) { %>
                 <li><div title="<%= locals.utilizator.prenume + ' ' + locals.utilizator.nume %>"><%- locals.utilizator.username %></div>
                     <ul>
-                        <li><a href="/profil">Profil</a></li>
-                        <li><a href="/logout">Logout</a></li>
+                        <li><a href="/profil"><i class="fa-solid fa-user"></i></a></li>
+                        <li><a href="/cos-virtual"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                        <li><a href="/logout"><i class="fa-solid fa-right-from-bracket"></i></a></li>
+                        <li><a href="/stergere_cont" title="Sterge cont"><i class="fa-solid fa-trash-can"></i></a></li>
                     </ul>
                 </li>
             <% } %>
+            
         </ul>
     </nav>
 </header>

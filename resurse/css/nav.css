@@ -1,7 +1,7 @@
 body{
     --culoare-meniu: var(--culoare7);
     --culoare-meniu-selectat: var(--culoare1) ;
-    --inaltime-meniu: 40px;
+    --inaltime-meniu: 25px;
     --inaltime-bara: 4px;
     --latime-buton: 150px;
     --latime-bord-meniu: 1px;

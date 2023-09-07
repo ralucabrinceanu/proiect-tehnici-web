@@ -86,16 +86,7 @@ class AccesBD {
         }
     }
 
-    insert ({tabel="", campuri=[], valori=[]}={}, callback) {
-        if (campuri.length != valori.length) {
-            throw new Error("nr campuri difera de nr valori");
-        }
-        let comanda = `insert into ${tabel}(${campuri.join(",")}) values (${valori.join(",")}) `;
-        console.log(comanda);
-        this.client.query(comanda, callback);
-    }
-
-    update({tabel="",campuri=[],valori=[], conditiiAnd=[]} = {}, callback){
+    update({tabel="",campuri=[], valori=[], conditiiAnd=[]} = {}, callback){
         if(campuri.length!=valori.length)
             throw new Error("Numarul de campuri difera de nr de valori")
         let campuriActualizate=[];
@@ -107,6 +98,15 @@ class AccesBD {
         let comanda=`update ${tabel} set ${campuriActualizate.join(", ")}  ${conditieWhere}`;
         console.log(comanda);
         this.client.query(comanda,callback)
+    }
+
+    insert ({tabel="", campuri=[], valori=[]}={}, callback) {
+        if (campuri.length != valori.length) {
+            throw new Error("nr campuri difera de nr valori");
+        }
+        let comanda = `insert into ${tabel}(${campuri.join(",")}) values (${valori.join(",")}) `;
+        console.log(comanda);
+        this.client.query(comanda, callback);
     }
 
     delete({tabel="",conditiiAnd=[]} = {}, callback){

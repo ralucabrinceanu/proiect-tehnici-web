@@ -3,8 +3,42 @@ window.addEventListener("load", function () {
     x = 100;
 
 
-    //  ------------------------ preluare date cos virtual din localStorage
+    // preluare date cos virtual din localStorage
+    // "cos_virtual:" "3,1,10,4,2"
+    // cantitate: "3|2, 5|1" produsul 3(2 bucati), produsul 5(1 bucata)
     
+    let iduriProduse = localStorage.getItem("cos_virtual");
+    iduriProduse = iduriProduse?iduriProduse.split(','):[];
+
+    for(let idp of iduriProduse) {
+        let ch = document.querySelector(`[value='${idp}'].select-cos`);
+        if (ch) {
+            ch.checked = true;
+        } else {
+            console.log("id cos virtual inexistent: ", idp);
+        }
+
+    }
+
+    // adaugare date in cos virtual
+    let checkboxuri = document.getElementsByClassName("select-cos");
+    for(let ch of checkboxuri) {
+        ch.onchange = function() {
+            let iduriProduse = localStorage.getItem("cos_virtual");
+            iduriProduse = iduriProduse?iduriProduse.split(','):[];
+
+            if(this.checked) {
+                iduriProduse.push(this.value);
+            } else {
+                let poz = iduriProduse.indexOf(this.value);
+                if(poz != -1) {
+                    iduriProduse.splice(poz, 1);
+                }
+            }
+
+            localStorage.setItem("cos_virtual", iduriProduse.join(','));
+        }
+    }
     
 
 
@@ -33,8 +67,6 @@ window.addEventListener("load", function () {
         //     alert("inputuri gresite");
         //     return;
         // }
-
-
 
         var inpTip = document.getElementById("inp-tip").value.toLowerCase().trim();
 

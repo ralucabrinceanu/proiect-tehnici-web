@@ -3,10 +3,10 @@
 window.addEventListener ("DOMContentLoaded", function() {
 
     temaCurenta = localStorage.getItem("tema");
-    if(temaCurenta) // se verifica daca exista tema curenta
+    if(temaCurenta) 
         document.body.classList.add(temaCurenta);
 
-    document.getElementById("flexSwitchCheckDefault").onclick = function() {
+    document.getElementById("flexSwitchCheckDefault").onchange = function() { // memorare tema
         if(document.body.classList.contains("dark")) {
             document.body.classList.remove("dark");
             localStorage.removeItem("tema");
@@ -18,8 +18,6 @@ window.addEventListener ("DOMContentLoaded", function() {
 
     }
 });
-
-
 // localStorage.clear() 
 
 

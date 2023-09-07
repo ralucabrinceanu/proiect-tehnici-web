@@ -65,7 +65,11 @@
         border: none;
         width: 100%;
         height: auto;
-        text-align: left;
+        text-align: center;
+    }
+
+    ul.meniu li ul {
+        display: none;
     }
 
     footer {

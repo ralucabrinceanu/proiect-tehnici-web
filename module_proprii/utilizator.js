@@ -40,7 +40,6 @@ class Utilizator{
         // this.data_nastere = data_nastere;
         // this.parola = parola;
         // this.culoare_chat=culoare_chat;
-        // this.poza=poza;
 
         this.#eroare="";
     }
@@ -50,7 +49,6 @@ class Utilizator{
     checkName(nume) {
         nume = nume + "";
         return nume != "" && nume.match(new RegExp("^[A-Z][a-z]+$"));
-        // return nume != "";
     }
 
     set setareNume(nume) {
@@ -60,11 +58,10 @@ class Utilizator{
             throw new Error("nume gresit")
         }
     }
-
+    
     checkUsername(username) {
         username = username + "";
         return username != "" && username.match(new RegExp("^[A-Za-z0-9]+$"));
-        // return username != "";
     }
     
     // folosit doar la inregistrare si modificare profil 
@@ -74,6 +71,7 @@ class Utilizator{
             throw new Error("username gresit")
         }
     }
+
 
     // modifica()
     modifica({id, username, nume, prenume, email, parola, data_nastere, rol="comun", culoare_chat="black", blocat, poza} = {}) {
@@ -97,32 +95,21 @@ class Utilizator{
     }
 
     static criptareParola(parola) { 
-        // ! Daca vrem hash-uri diferite pt aceeasi parola trb sa randomizam (evt aici jos) parolaCriptare
+        // ! Daca vrem hash-uri diferite pt aceeasi parola trb sa randomizam parolaCriptare
         return crypto.scryptSync(parola.toString(), Utilizator.parolaCriptare, Utilizator.lungimeCod).toString("hex");
     }
 
-    // salvareUtilizator() {
-    //     let parolaCriptata = Utilizator.criptareParola(this.parola);
-    //     let utiliz = this;
-    //     let token = parole.genereazaToken(100);
-
-    //     AccesBD.getInstanta(Utilizator.tipConexiune).insert({
-    //         tabel:Utilizator.tabel, 
-    //         campuri:["username", "nume", "prenume", "email", "parola", "data_nastere", "cod", "poza"], 
-    //         valori:[`'${this.username}'`, `'${this.nume}'`, `'${this.prenume}'`, `'${this.email}'`, 
-    //         `'${parolaCriptata}'`, `'${this.data_nastere}'`, `'${token}'`, `'${this.poza}'` ]
-    //     }, function(err, rez) {
-    //         if(err) 
-    //             console.log(err);
-
-    //         utiliz.trimiteMail("Te-ai inregistrat cu succes", "Username-ul tau este " + utiliz.username,
-    //         `<h1>Salut!</h1><p style='color:blue'>Username-ul tau este ${utiliz.username}.</p> 
-    //         <p><a href='http://${Utilizator.numeDomeniu}/cod/${utiliz.username}/${token}'>Click aici pentru confirmare</a></p>` );
-    //     });
+    // static criptareParola(parola, saltKey) { 
+    //     return crypto.scryptSync(parola.toString(), saltKey, Utilizator.lungimeCod).toString("hex");
     // }
+
 
     salvareUtilizator() {
         let parolaCriptata = Utilizator.criptareParola(this.parola);
+
+        // let saltKey = Utilizator.genereazaSaltKey();
+        // let parolaCriptata = Utilizator.criptareParola(this.parola, saltKey);
+
         let utiliz = this;
         let token1 = parole.genereazaToken(10);
         let sirAleator = '';
@@ -131,16 +118,19 @@ class Utilizator{
             const caracterAleator = caracterePermise[Math.floor(Math.random() * caracterePermise.length)];
             sirAleator += caracterAleator;
         }
-        // facem cast de la obiect la string
+        // cast de la obiect la string
         let username = utiliz.username + '';
         let token2 = `${utiliz.username}-${sirAleator}`;
         let reversedUsername = username.split('').reverse().join('');        
 
         AccesBD.getInstanta(Utilizator.tipConexiune).insert({
             tabel:Utilizator.tabel, 
-            campuri:["username", "nume", "prenume", "email", "parola", "data_nastere", "cod", "poza"], 
-            valori:[`'${this.username}'`, `'${this.nume}'`, `'${this.prenume}'`, `'${this.email}'`, 
-            `'${parolaCriptata}'`, `'${this.data_nastere}'`, `'${token1}'`, `'${this.poza}'` ]
+            campuri:["username", "nume", "prenume", 
+                "email", "parola", "data_nastere", 
+                "cod", "poza"], 
+            valori:[`'${this.username}'`, `'${this.nume}'`, `'${this.prenume}'`, 
+                `'${this.email}'`, `'${parolaCriptata}'`, `'${this.data_nastere}'`, 
+                `'${token1}'`, `'${this.poza}'` ]
         }, function(err, rez) {
             if(err) 
                 console.log(err);

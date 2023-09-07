@@ -23,7 +23,7 @@
 					if (opt.value=="<%= locals.utilizator.culoare_chat %>")
 						opt.selected=true;
 
-				// incarc poza de profil in placeholder imd dupa ce am selectat-o
+				// incarc poza de profil in placeholder imediat dupa ce am selectat-o
 				const imgPicker = document.getElementById("sel-poza");
 				const profileImg = document.getElementById("profile-img");
 				imgPicker.addEventListener("change", () => {
@@ -48,8 +48,15 @@
 			<% if(locals.utilizator) { %>
 			<section>
 				<h2>Profil</h2>
+				<% 
+				
+				poza = '/resurse/imagini/pozaDefault.png'
+				if(locals.utilizator.poza) poza='/' + locals.utilizator.poza;
+				
+				
+				%>
 				<p><%= locals.raspuns %></p>
-				<img id="profile-img" src="/<%- locals.utilizator.poza%>" alt="nu ati incarcat poza de profil" />
+				<img id="profile-img" src="/<%- poza%>" alt="nu ati incarcat poza de profil" />
 			</section>
 			<%- include("../fragmente/formular",{action:"/profil"}) %>
 		</main>

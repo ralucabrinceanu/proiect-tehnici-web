@@ -33,8 +33,8 @@ window.addEventListener("load", function() {
     }
 
     document.getElementById("ok_cookies").onclick = function() {
-        setCookie("acceptat_banner", true, 60000); 
-        // setCookie("acceptat_banner", true, 12 * 60 * 60 * 1000); // jumatate de zi 
+        // setCookie("acceptat_banner", true, 60000); 
+        setCookie("acceptat_banner", true, 12 * 60 * 60 * 1000); // jumatate de zi 
         document.getElementById("banner").style.display = "none";
     }
 })
